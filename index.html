@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Bot</title>
+    <!-- Script Telegram Web App -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { font-family: sans-serif; display: flex; flex-direction: column; gap: 10px; padding: 20px; background-color: #f0f2f5; }
+        
+        .btn { padding: 15px; border: none; border-radius: 10px; color: white; font-weight: bold; cursor: pointer; text-align: center; }
+        
+        /* Warna Biru */
+        .blue { background-color: #2481cc; }
+        
+        /* Warna Merah */
+        .red { background-color: #ff3b30; }
+
+        /* Efek klik */
+        .btn:active { opacity: 0.8; }
+    </style>
+</head>
+<body>
+
+    <!-- Tombol Menu -->
+    <button class="btn blue" onclick="sendData('ID & User')">🆔 ID & USER</button>
+    <button class="btn blue" onclick="sendData('Broadcast')">📢 BROADCAST</button>
+    <button class="btn blue" onclick="sendData('VIP & Prem')">🃏 VIP & PREM</button>
+    <button class="btn blue" onclick="sendData('Sistem & Tools')">🀄 SISTEM & TOOLS</button>
+    <button class="btn red" onclick="closeApp()">❌ TUTUP</button>
+    <button class="btn blue" onclick="sendData('Kembali')">⏪ KEMBALI</button>
+
+    <script>
+        // Inisialisasi Web App
+        let tg = window.Telegram.WebApp;
+        tg.expand(); // Membuat app terbuka full screen
+
+        function sendData(item) {
+            // Mengirim data balik ke bot Telegram
+            tg.sendData(item);
+        }
+
+        function closeApp() {
+            tg.close(); // Menutup aplikasi
+        }
+    </script>
+</body>
+</html>
